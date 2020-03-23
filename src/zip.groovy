@@ -35,11 +35,10 @@ class ZipCompress
     public void compress(ZipOutputStream out,File sourceFile,String base) throws Exception
     {
         //如果不是目录（文件夹），即为文件，则先写入目录进入点，之后将文件写入zip文件中
-        if(!sourceFile.isDirectory()) {
+        if(sourceFile.isFile()) {
             out.putNextEntry( new ZipEntry(base) );
             BufferedInputStream bis = new BufferedInputStream( new FileInputStream(sourceFile) );
 
-            int b;
             System.out.println(base);
             byte[] bytes = new byte[1024];
             int length;
@@ -52,8 +51,8 @@ class ZipCompress
     }
 }
 
-sourceFileName = "D:\\code\\java\\kuangjia\\groovy1.7.11\\src\\assert\\电影.txt"
-zipFilename = "D:\\code\\java\\kuangjia\\groovy1.7.11\\src\\assert\\电影.zip"
+sourceFileName = "./assert/电影.txt"
+zipFilename = "./assert/电影.zip"
 ZipCompress zipCom = new ZipCompress(zipFilename,sourceFileName);
 
 try{
