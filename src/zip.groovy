@@ -51,8 +51,8 @@ class ZipCompress
     }
 }
 
-sourceFileName = "./assert/电影.txt"
-zipFilename = "./assert/电影.zip"
+sourceFileName = "./src/assert/电影.txt"
+zipFilename = "./src/assert/电影.zip"
 ZipCompress zipCom = new ZipCompress(zipFilename,sourceFileName);
 
 try{
