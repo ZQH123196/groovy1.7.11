@@ -1,30 +1,36 @@
+package myjava;
 
-import org.apache.commons.codec.binary.Base64
 
+import org.apache.commons.codec.binary.Base64;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
-import java.util.zip.ZipEntry
-import java.util.zip.ZipFile
+import java.io.IOException;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
 public class ZipCompressJava {
-    public static void main(String[] args) {
-        String data1 = "1234";
-        String de = decompresss(data1)
-        println(de)
+    public static void main(String[] args) throws IOException {
+        String data1 = "123412333333";
+        System.out.println(data1);
+        String de = decompresss(data1);
+        System.out.println(de);
 
-        String out = compress(de)
-        println(out)
+        String out = compress(de);
+        System.out.println(out);
 
     }
 
-    public static final String compress(String str) {
+    public static final String compress(String str) throws IOException {
         ByteArrayOutputStream out = null;
         ZipOutputStream zout = null;
         byte[] compressed = null;
 
         out = new ByteArrayOutputStream();
-        zout = new ZipOutputStream();
+        zout = new ZipOutputStream(out);
         zout.write(str.getBytes());
         zout.closeEntry();
         compressed = out.toByteArray();
@@ -33,7 +39,7 @@ public class ZipCompressJava {
         return  Base64.encodeBase64String(compressed);
     }
 
-    public static final String decompresss(String str) {
+    public static final String decompresss(String str) throws IOException {
         byte[] compressed = Base64.decodeBase64(str);
 
         ByteArrayOutputStream out = null;

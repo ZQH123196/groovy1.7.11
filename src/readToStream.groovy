@@ -25,10 +25,13 @@ println("inCompressStr:[$inCompressStr]")
 ByteArrayOutputStream out = new ByteArrayOutputStream();
 
 ZipOutputStream zipOut = new ZipOutputStream( out );
+t = new ZipEntry("0")
 // 写入数据以及 zip 的头尾
-zipOut.putNextEntry(new ZipEntry("0"));
+zipOut.putNextEntry(t);
 zipOut.write(inCompressStr.getBytes());
 zipOut.closeEntry();
+println("t:" + t.getTime())
+
 // 数据已经写入 out
 byte[] compressedData = out.toByteArray();
 
@@ -36,3 +39,4 @@ out.close();
 zipOut.close()
 
 Base64.encodeBase64String(compressedData);
+
