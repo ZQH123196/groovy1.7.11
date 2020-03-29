@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact build-on-make="true" name="groovy1.7.11:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/groovy1_7_11_jar</output-path>
+    <root id="root">
+      <element id="archive" name="groovy1.7.11.jar">
+        <element id="module-output" name="groovy1.7.11" />
+      </element>
+      <element id="library" level="application" name="groovy-1.7.11" />
+    </root>
+  </artifact>
+</component>
